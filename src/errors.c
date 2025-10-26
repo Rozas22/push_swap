@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 21:23:34 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/10/20 21:23:53 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/10/26 18:19:25 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,21 @@ void	error_exit(t_stack *a, t_stack *b)
 	free_stack(a);
 	free_stack(b);
 	exit(1);
+}
+
+void	free_stack(t_stack *s)
+{
+	t_node	*cur;
+	t_node	*next;
+
+	cur = s->top;
+	while (cur)
+	{
+		next = cur->next;
+		free(cur);
+		cur = next;
+	}
+	s->top = NULL;
+	s->bottom = NULL;
+	s->size = 0;
 }
