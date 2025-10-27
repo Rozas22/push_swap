@@ -28,11 +28,7 @@ PY
 done
 
 avg=$(awk -v s="$sum" -v n="$ok" 'BEGIN{ if(n>0) printf("%.2f", s/n); else print "n/a" }')
-echo "Runs OK: $ok/$RUNS"
-echo "Best:  $best  Worst: $worst  Avg: $avg"
-echo "Worst input:"
 echo "$worst_arg"
-
 # Escala de 500 números:
 # <5500:5 | <7000:4 | <8500:3 | <10000:2 | <11500:1
 score=0
@@ -42,6 +38,7 @@ elif (( worst < 8500 ));   then score=3
 elif (( worst < 10000 ));  then score=2
 elif (( worst < 11500 ));  then score=1
 fi
+echo "Runs OK: $ok/$RUNS"
+echo "Best:  $best  Worst: $worst  Avg: $avg"
+echo "Worst input: $worst"
 echo "Score (500 nums, por peor caso): $score"
-
-

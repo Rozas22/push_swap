@@ -35,11 +35,7 @@ PY
 done
 
 avg=$(awk -v s="$sum" -v n="$ok" 'BEGIN{ if(n>0) printf("%.2f", s/n); else print "n/a" }')
-echo "Runs OK: $ok/$RUNS"
-echo "Best:  ${best:-n/a}  Worst: ${worst:-n/a}  Avg: $avg"
-echo "Worst input:"
-echo "$worst_arg"
-
+echo "Worst input: ${worst:-n/a}"
 score=0
 if   [ -n "${worst:-}" ] && (( worst < 700 ));   then score=5
 elif [ -n "${worst:-}" ] && (( worst < 900 ));   then score=4
@@ -47,4 +43,6 @@ elif [ -n "${worst:-}" ] && (( worst < 1100 ));  then score=3
 elif [ -n "${worst:-}" ] && (( worst < 1300 ));  then score=2
 elif [ -n "${worst:-}" ] && (( worst < 1500 ));  then score=1
 fi
+echo "Runs OK: $ok/$RUNS"
+echo "Best:  ${best:-n/a}  Worst: ${worst:-n/a}  Avg: $avg"
 echo "Score (100 nums, por peor caso): $score"
