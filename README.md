@@ -21,9 +21,9 @@
 
 # Sin parámetros (no debe imprimir nada)
 ./push_swap
-
+```
 ### Comprobaciónes errores con Valgrind
-
+```bash
 # No numérico
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
   --log-file=vg-nonnum.txt -- ./push_swap 0 one 2 3 >/dev/null 2>&1
