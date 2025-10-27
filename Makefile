@@ -10,15 +10,15 @@ LIBFT_A		= $(LIBFT_DIR)/libft.a
 SRCS = src/main.c \
        src/read_args.c \
        src/stack.c \
-       src/ops_swap.c \
-       src/ops_push.c \
-       src/ops_rotate.c \
-       src/ops_rev_rotate.c \
+       src/swap.c \
+       src/push.c \
+       src/rotate.c \
+       src/rev_rotate.c \
        src/sort_small.c \
        src/sort_big.c \
        src/utils.c \
-       src/free_stack.c \
-	   src/errors.c
+	   src/errors.c \
+	   src/sort_big_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
