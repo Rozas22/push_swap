@@ -6,13 +6,12 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:56:40 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/10/20 21:06:27 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/10/27 14:17:47 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* libera un split de ft_split */
 static void	free_split(char **sp)
 {
 	int	i;
@@ -26,7 +25,6 @@ static void	free_split(char **sp)
 	free(sp);
 }
 
-/* convierte y mete un número en arr[k] */
 static int	add_number(const char *s, int *arr, int *k)
 {
 	int		ok;
@@ -40,7 +38,6 @@ static int	add_number(const char *s, int *arr, int *k)
 	return (1);
 }
 
-/* cuenta cuántos tokens hay en todos los argv (soporta "1 2 3") */
 static int	count_tokens(int argc, char **argv)
 {
 	int		total;
@@ -68,7 +65,6 @@ static int	count_tokens(int argc, char **argv)
 	return (total);
 }
 
-/* rellena arr con todos los números (valida rango y formato) */
 static int	fill_array(int argc, char **argv, int *arr)
 {
 	int		i;
@@ -96,7 +92,6 @@ static int	fill_array(int argc, char **argv, int *arr)
 	return (1);
 }
 
-/* crea stack A desde argv, comprueba duplicados */
 int	read_args(int argc, char **argv, t_stack *a)
 {
 	int		total;
@@ -119,6 +114,7 @@ int	read_args(int argc, char **argv, t_stack *a)
 		push_top(a, node_new(arr[i]));
 		i--;
 	}
+	a->size = total;
 	free(arr);
 	return (1);
 }
