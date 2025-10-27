@@ -25,9 +25,10 @@ Implementación del proyecto **push_swap** (42). Este ejecutable recibe una list
 
 # Sin parámetros (no debe imprimir nada)
 ./push_swap
-🧼 Comprobaciones de errores con Valgrind
-bash
-Copiar código
+```
+### 🧼 Comprobaciones de errores con Valgrind
+```bash
+
 # No numérico
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
   --log-file=vg-nonnum.txt -- ./push_swap 0 one 2 3 >/dev/null 2>&1
@@ -43,7 +44,8 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
 # Sin parámetros (no debe imprimir nada)
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
   --log-file=vg-noparams.txt -- ./push_swap >/dev/null 2>&1
-🧪 Tests automáticos (carpeta test/)
+  ```
+### 🧪 Tests automáticos (carpeta test/)
 En test/ hay dos scripts para validar rendimiento y corrección usando checker_linux:
 
 test_100.sh → 100 números aleatorios repetidos N veces. Calcula Best/Worst/Avg y puntúa según la escala oficial de 100.
@@ -57,7 +59,7 @@ Tener checker_linux en el directorio del proyecto (o ajustar la ruta en los scri
 Tener Python 3 instalado (se usa para generar entradas aleatorias sin duplicados).
 
 Ejecutar con bash.
-
+```bash
 📁 Estructura
 bash
 Copiar código
@@ -75,6 +77,7 @@ bash test/test_100.sh 30
 
 # 10 repeticiones de 500 números (por defecto 10 si no pasas argumento)
 bash test/test_500.sh 10
+```
 📊 Qué muestran
 checker: OK/KO por cada ejecución.
 
@@ -111,8 +114,8 @@ Para 500 números (el test falla si alguna ejecución tiene ≥ 11500 ops):
 
 El script imprime también el input peor para poder reproducirlo y depurarlo.
 
-🛠️ Ejecución manual rápida (sin script)
-bash
+### 🛠️ Ejecución manual rápida (sin script)
+```bash
 Copiar código
 # 100 números, una ejecución
 ARG="$(python3 - <<'PY'
@@ -125,7 +128,8 @@ ARG="$(python3 - <<'PY'
 import random; print(*random.sample(range(-2147483648,2147483647), 500))
 PY
 )"; ./push_swap $ARG | ./checker_linux $ARG; ./push_swap $ARG | wc -l
-📌 Consejos y resolución de problemas
+```
+### 📌 Consejos y resolución de problemas
 Salida estricta: imprime solo instrucciones válidas (sa, pb, ra, …) en minúsculas y una por línea (\n). Nada de \r, espacios extra o logs.
 
 Orden de carga: el primer argumento debe ser la cima de a. Construye la pila conservando el orden de entrada.
